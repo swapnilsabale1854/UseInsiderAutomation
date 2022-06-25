@@ -25,27 +25,24 @@ public class UseInsider extends BaseTest{
 		home = new Homepage(driver);
 		System.out.println(driver.getTitle());
 		Thread.sleep(3000);
-		//driver.findElement(By.xpath("//a[@id='wt-cli-accept-all-btn']")).click();
-		home.acceptCookies.click();
-		
-		home.Menu.click();
+		clickOn(home.acceptCookies);
+		clickOn(home.Menu);
 		Assert.assertEquals(prop.getProperty("HomePageTitle"),driver.getTitle());
-		
-		home.career.click();
-		
+		Thread.sleep(2000);
+		clickOn(home.career);
 		CareerPage career = new CareerPage();
 		
-		//acceptCookies(career.acceptCookies);
+		
 
 	}
 	
 	
-
-//	@AfterTest
-//	public void closeBrowser()
-//	{
-//		driver.close();
-//	}
+ 
+	@AfterTest
+	public void closeBrowser()
+	{
+		driver.close();
+	}
 	
 	
 	
